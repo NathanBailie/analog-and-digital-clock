@@ -1,6 +1,6 @@
 "use strict"
 
-//clock hands moving
+// analog clock
 const hr = document.querySelector('.hour');
 const mn = document.querySelector('.min');
 const sc = document.querySelector('.sec');
@@ -11,18 +11,30 @@ const secDeg = 360 / 60;
 
 setInterval(() => {
     let day = new Date();
-    let hours = day.getHours();
-    let minutes = day.getMinutes();
-    let seconds = day.getSeconds();
+    let h = day.getHours();
+    let m = day.getMinutes();
+    let s = day.getSeconds();
 
-    hours = hours % 12;
-    hours = hours ? hours : 12;
+    h = h % 12 || 12;
 
-    let hh = hours * hourDeg;
-    let mm = minutes * minDeg;
-    let ss = seconds * secDeg;
+    let hh = h * hourDeg;
+    let mm = m * minDeg;
+    let ss = s * secDeg;
 
     hr.style.transform = `rotateZ(${hh + (mm / 12)}deg)`;
     mn.style.transform = `rotateZ(${mm}deg)`;
     sc.style.transform = `rotateZ(${ss}deg)`;
+
+    // digital clock
+    let hours = document.querySelector('.hours');
+    let minutes = document.querySelector('.minutes');
+    let seconds = document.querySelector('.seconds');
+    let ampm = document.querySelector('.ampm');
+
+    const normalize = (num) => { return num < 10 ? `0${num}` : num };
+
+    hours.innerHTML = normalize(h);
+    minutes.innerHTML = normalize(m);
+    seconds.innerHTML = normalize(s);
+    ampm.innerHTML = day.getHours() > 12 ? 'PM' : 'AM';
 });

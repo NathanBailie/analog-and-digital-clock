@@ -22,12 +22,13 @@ body {
     box-shadow: 15px 25px 75px rgba(0, 0, 0, 0.75),
     10px 10px 70px rgba(0, 0, 0, 0.25),
     inset 5px 5px 10px rgba(0, 0, 0, 0.5),
-    inset 5px 5px 20px rgba(0, 0, 0, 0.2),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.2),
     inset -5px -5px 15px rgba(0, 0, 0, 0.75);
     border-radius: 20px;
     border-top-left-radius: 225px;
     border-top-right-radius: 225px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -39,7 +40,7 @@ body {
     background: #2f363e;
     box-shadow: 10px 50px 70px rgba(0, 0, 0, 0.25),
     inset 5px 5px 10px rgba(0, 0, 0, 0.5),
-    inset 5px 5px 20px rgba(0, 0, 0, 0.2),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.2),
     inset -5px -5px 15px rgba(0, 0, 0, 0.75);
     border-radius: 50%;
     display: flex;
@@ -125,6 +126,62 @@ body {
     transform: scaleY(0.5);
 }
 
+.sec i, .min i, .hour i {
+    border-radius: 50% 50% 0 0;
+}
+
 .sec i {
-    width: 2px;
+    width: 4px;
+}
+
+/* digital clock */
+.time {
+    margin-bottom: 40px;
+    display: flex;
+    padding: 10px 20px;
+    font-size: 2em;
+    font-weight: 600;
+    border: 2px solid rgba(0,0,0,0.5);
+    border-radius: 40px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5),
+                inset 5px 5px 20px rgba(255,255,255,0.2),
+                inset -5px -5px 15px rgba(0,0,0,0.75);
+}
+
+.time div {
+    position: relative;
+    width: 60px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--clr);
+}
+
+.hours::after, .minutes::after {
+    content: ':';
+    position: absolute;
+    right: -4px;
+}
+
+.time .ampm {
+    font-size: 0.7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.minutes::after {
+    animation: seconds 1s steps(1) infinite;
+}
+
+@keyframes seconds {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
