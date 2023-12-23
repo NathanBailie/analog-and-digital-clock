@@ -38,3 +38,28 @@ setInterval(() => {
     seconds.innerHTML = normalize(s);
     ampm.innerHTML = day.getHours() > 12 ? 'PM' : 'AM';
 });
+
+// checkbox
+let checkbox = document.querySelector('#box');
+let imgWrapper = document.querySelector('.img-wrapper');
+let lamp = document.querySelector('.lamp');
+let wrapper = document.querySelector('.wrapper');
+
+let theme = 'light';
+
+
+checkbox.addEventListener('click', () => {
+    resetClasses();
+
+    theme = theme === 'light' ? 'dark' : 'light';
+
+    imgWrapper.classList.add(theme);
+    lamp.classList.add(theme);
+    wrapper.classList.add(theme);
+})
+
+function resetClasses() {
+    wrapper.classList.remove('light', 'dark');
+    lamp.classList.remove('light', 'dark');
+    imgWrapper.classList.remove('light', 'dark');
+}
