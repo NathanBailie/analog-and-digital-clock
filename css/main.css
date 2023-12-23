@@ -15,7 +15,7 @@
     --clock-bg-color: #bfbfbf;
     --inverted-clock-bg-color: #2f363e;
     --text-color: #000;
-    --time-border: 2px solid rgba(189, 189, 189, 0.5);
+    --time-border: 2px solid rgba(126, 111, 111, 0.5);
     --time-box-shadow: 5px 5px 10px rgba(0,0,0,0.5), 
                         inset 5px 5px 20px rgba(255,255,255,0.2), 
                         inset -5px -5px 8px rgb(104 97 97 / 75%);
@@ -42,7 +42,7 @@
     justify-content: center;
     align-items: center;
     background: var(--page-bg-color);
-    
+    position: relative;
 }
 
 .container {
@@ -250,4 +250,86 @@
     100% {
         opacity: 1;
     }
+}
+
+/* bulb */
+.bulb {
+    position: absolute;
+    top: 0;
+    right: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rope {
+    width: 2px;
+    height: 26px;
+    background: #2c2c2c;
+}
+
+.cap {
+    width: 12px;
+    height: 14px;
+    background: black;
+    border-radius: 15px 15px 0 0;
+}
+
+.center {
+    width: 12px;
+    height: 16px;
+    background: gray;
+}
+
+.lamp {
+    width: 30px;
+    height: 30px;
+    background: gray;
+    border-radius: 50%;
+    margin-top: -9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lamp.turned::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 100;
+    filter: blur(12px);
+}
+
+.corners {
+    width: 20px;
+    height: 20px;
+    background: gray;
+    position: absolute;
+    top: 44px;
+}
+
+.corners::before {
+    content: '';
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background: var(--page-bg-color);
+    top: -9px;
+    right: 16px;
+    border-radius: 50%;
+}
+
+.corners::after {
+    content: '';
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background: var(--page-bg-color);
+    top: -9px;
+    left: 16px;
+    border-radius: 50%;
 }
