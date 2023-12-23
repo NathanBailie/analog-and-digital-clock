@@ -10,5 +10,5 @@ I found the idea for this project in one of the tutorials on [Online Tutorials](
 
 ## Technologies
 * Html
-* CSS (css-variables)
-* JavaScript (working with DOM)
+* CSS (css-variables, two themes)
+* JavaScript (working with DOM, custom checkbox theme switcher)

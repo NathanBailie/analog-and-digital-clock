@@ -47,15 +47,16 @@ let wrapper = document.querySelector('.wrapper');
 
 let theme = 'light';
 
-
 checkbox.addEventListener('click', () => {
     resetClasses();
 
     theme = theme === 'light' ? 'dark' : 'light';
+    let descr = theme === 'light' ? 'Light teme' : 'Dark theme'
 
-    imgWrapper.classList.add(theme);
-    lamp.classList.add(theme);
     wrapper.classList.add(theme);
+    lamp.classList.add(theme);
+    imgWrapper.classList.add(theme);
+    imgWrapper.title = descr;
 })
 
 function resetClasses() {
