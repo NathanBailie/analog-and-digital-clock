@@ -7,18 +7,48 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    min-height: 500px;
-    min-height: 100vh;
-    background: #2f363e;
+.light {
+    --sec-color: #5f5cff ;
+    --min-color: #7e3309;
+    --hour-color: #f32929; 
+    --page-bg-color: #b7b8b9;
+    --clock-bg-color: #bfbfbf;
+    --inverted-clock-bg-color: #2f363e;
+    --text-color: #000;
+    --time-border: 2px solid rgba(189, 189, 189, 0.5);
+    --time-box-shadow: 5px 5px 10px rgba(0,0,0,0.5), 
+                        inset 5px 5px 20px rgba(255,255,255,0.2), 
+                        inset -5px -5px 8px rgb(104 97 97 / 75%);
+}
+
+.dark {
+    --sec-color: #04fc43;
+    --min-color: #fee800;
+    --hour-color: #cf0000; 
+    --page-bg-color: #2f363e;
+    --clock-bg-color: #2f363e;
+    --inverted-clock-bg-color: #bfbfbf;
+    --text-color: #fff;
+    --time-border: 2px solid rgba(0,0,0,0.5);
+    --time-box-shadow: 5px 5px 10px rgba(0,0,0,0.5),
+                        inset 5px 5px 20px rgba(255,255,255,0.2),
+                        inset -5px -5px 15px rgba(0,0,0,0.75);
+}
+
+.wrapper {
+    min-width: 100vw;
+    min-height: 100vh; 
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--page-bg-color);
+    
 }
 
 .container {
+    min-width: 450px;
     position: relative;
-    background: #2f363e;
+    background: var(--clock-bg-color);;
     box-shadow: 15px 25px 75px rgba(0, 0, 0, 0.75),
     10px 10px 70px rgba(0, 0, 0, 0.25),
     inset 5px 5px 10px rgba(0, 0, 0, 0.5),
@@ -37,7 +67,7 @@ body {
     width: 450px;
     height: 450px;
     position: relative;
-    background: #2f363e;
+    background: var(--clock-bg-color);
     box-shadow: 10px 50px 70px rgba(0, 0, 0, 0.25),
     inset 5px 5px 10px rgba(0, 0, 0, 0.5),
     inset 5px 5px 20px rgba(255, 255, 255, 0.2),
@@ -53,8 +83,8 @@ body {
     width: 10px;
     height: 10px;
     position: absolute;
-    background: #2f363e;
-    border: 3px solid #fff;
+    background: var(--inverted-clock-bg-color);
+    border: 3px solid var(--clock-bg-color);;
     border-radius: 50%;
     z-index: 100;
 }
@@ -62,7 +92,7 @@ body {
 .clock span {
     position: absolute;
     inset: 20px;
-    color: #fff;
+    color: var(--text-color);
     text-align: center;
     /* 360 / 12 = 30deg */
     transform: rotate(calc(30deg * var(--i))); 
@@ -110,20 +140,47 @@ body {
     top: -8.5px;
     width: 14px;
     height: 14px;
-    background: var(--clr);
     border-radius: 50%;
+}
+
+.circle.sec::before, 
+.circle.min::before, 
+.circle.hour::before {
     box-shadow: 0 0 15px var(--clr),
-                0 0 40px var(--clr);
+    0 0 40px var(--clr);
+}
+
+.circle.sec::before {
+    background: var(--sec-color);
+}
+
+.circle.min::before {
+    background: var(--min-color);
+}
+
+.circle.hour::before {
+    background: var(--hour-color);
 }
 
 .circle i {
     width: 6px;
     height: 50%;
     position: absolute;
-    background: var(--clr);
     opacity: 0.75;
     transform-origin: bottom;
     transform: scaleY(0.5);
+}
+
+.circle.sec i {
+    background: var(--sec-color);
+}
+
+.circle.min i {
+    background: var(--min-color);
+}
+
+.circle.hour i {
+    background: var(--hour-color);
 }
 
 .sec i, .min i, .hour i {
@@ -141,11 +198,9 @@ body {
     padding: 10px 20px;
     font-size: 2em;
     font-weight: 600;
-    border: 2px solid rgba(0,0,0,0.5);
+    border: var(--time-border);
     border-radius: 40px;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5),
-                inset 5px 5px 20px rgba(255,255,255,0.2),
-                inset -5px -5px 15px rgba(0,0,0,0.75);
+    box-shadow: var(--time-box-shadow);
 }
 
 .time div {
@@ -153,7 +208,18 @@ body {
     width: 60px;
     text-align: center;
     font-weight: 500;
-    color: var(--clr);
+}
+
+.time .seconds {
+    color: var(--sec-color);
+}
+
+.time .minutes {
+    color: var(--min-color);
+}
+
+.time .hours {
+    color: var(--hour-color);
 }
 
 .hours::after, .minutes::after {
@@ -167,7 +233,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .minutes::after {
