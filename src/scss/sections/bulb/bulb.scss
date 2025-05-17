@@ -1,0 +1,78 @@
+.bulb {
+	position: absolute;
+	top: 0;
+	right: 225px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.rope {
+		width: 2px;
+		height: 26px;
+		background: #2c2c2c;
+	}
+
+	.cap {
+		width: 12px;
+		height: 14px;
+		background: black;
+		border-radius: 15px 15px 0 0;
+	}
+
+	.center {
+		width: 12px;
+		height: 16px;
+		background: gray;
+	}
+
+	.lamp {
+		width: 30px;
+		height: 30px;
+		background: gray;
+		border-radius: 50%;
+		margin-top: -9px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&.dark::after {
+			content: '';
+			position: absolute;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			background: #fff;
+			z-index: 100;
+			filter: blur(12px);
+		}
+	}
+}
+
+.corners {
+	width: 20px;
+	height: 20px;
+	background: gray;
+	position: absolute;
+	top: 44px;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		width: 17px;
+		height: 17px;
+		background: var(--page-bg-color);
+		top: -9px;
+		border-radius: 50%;
+		transition: background var(--transition);
+	}
+
+	&::before {
+		right: 16px;
+	}
+
+	&::after {
+		left: 16px;
+	}
+}

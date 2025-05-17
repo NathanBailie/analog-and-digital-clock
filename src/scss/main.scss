@@ -1,0 +1,13 @@
+// libs
+@use "../assets/css-libs/normalize.min.css" as *;
+
+// helpers
+@use "./base/variables.scss" as *;
+@use "./base/mixins.scss" as *;
+@use "./base/base_styles.scss" as *;
+
+// sections
+@use "sections/analog-clock/analog-clock.scss" as *;
+@use "sections/digital-clock/digital-clock.scss" as *;
+@use "sections/bulb/bulb.scss" as *;
+@use "sections/switcher/switcher.scss" as *;

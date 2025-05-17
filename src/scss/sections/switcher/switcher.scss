@@ -1,0 +1,35 @@
+#box {
+	display: none;
+}
+
+.label {
+	position: absolute;
+	top: 20px;
+	right: 40px;
+	width: 120px;
+	height: 60px;
+	border-radius: 30px;
+	padding: 2px;
+	display: flex;
+	align-items: flex-start;
+	overflow: hidden;
+	background: var(--switcher-bg);
+	cursor: pointer;
+	transition: background var(--transition);
+
+	.img-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		transition: transform var(--transition);
+
+		img {
+			width: 56px;
+			height: 56px;
+		}
+
+		&.dark {
+			transform: translate(60px, -66px);
+		}
+	}
+}
